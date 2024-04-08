@@ -1,0 +1,26 @@
+// Problem Statement Link : https://leetcode.com/problems/valid-parenthesis-string/description/?envType=daily-question&envId=2024-04-07
+// Date : 7-4-24
+// Auhtor : Shivam Pal
+
+class Solution {
+public:
+    bool checkValidString(string s) {
+        
+        int low =0, high = 0 ,n = s.length();
+
+        for(int i=0;i<n;i++){
+
+            if(s[i] == '(')low++;
+            else low--;
+
+            if(s[i] != ')')high++;
+            else high--;
+
+            if(high < 0)return false;
+            if(low < 0)low = 0;
+
+        }
+
+        return low==0;
+    }
+};
