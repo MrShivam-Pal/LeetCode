@@ -1,0 +1,21 @@
+// Problem Statement Link : https://leetcode.com/problems/time-needed-to-buy-tickets/submissions/1227282787/?envType=daily-question&envId=2024-04-09
+// Date : 9-4-24
+// Author : Shivam Pal 
+
+class Solution {
+public:
+    int timeRequiredToBuy(vector<int>& tickets, int k) {
+        
+        int time = 0 , n = tickets.size() , min_value = tickets[k];
+
+        for(int i=0;i<n;i++){
+
+            if(tickets[i] < tickets[k])time += tickets[i];
+            else time += min_value;
+            
+            if(i==k)min_value--;
+        }
+
+        return time;
+    }
+};
