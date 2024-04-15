@@ -1,0 +1,22 @@
+// Problem Statement Link : https://leetcode.com/problems/maximal-rectangle/submissions/1232369580/?envType=daily-question&envId=2024-04-13
+// Date : 15-4-24
+// Authior : Shivam Pal
+
+class Solution {
+public:
+    int sumNumbers(TreeNode* root) {
+        return dfs(root, 0);
+    }
+    
+    int dfs(TreeNode* node, int pathSum) {
+        if (!node)
+            return 0;
+        
+        pathSum = pathSum * 10 + node->val;
+        
+        if (!node->left && !node->right)
+            return pathSum;
+        
+        return dfs(node->left, pathSum) + dfs(node->right, pathSum);
+    }
+};
